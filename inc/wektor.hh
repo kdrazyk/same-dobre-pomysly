@@ -12,7 +12,8 @@ private:
 public:
   wektor();
 
-  double operator[] (int numer) {return this->_wsp[numer];}
+  const double & operator[] (int el) const {return this->_wsp[el];}
+  double & operator[] (int el) {return this->_wsp[el];}
 
   friend istream & operator >> (istream &istr, wektor &wek);
   friend ostream & operator << (ostream &ostr, const  wektor &wek);

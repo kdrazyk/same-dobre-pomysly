@@ -2,8 +2,12 @@
 
 int main(){
 
+  string data = "1 2 3";
+  stringstream sData;
+  sData.str (data);
+
   wektor test;
-  cin >> test;
+  sData >> test;
   cout << endl;
   cout << test << endl;
 
