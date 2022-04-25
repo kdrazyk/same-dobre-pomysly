@@ -7,14 +7,19 @@ using namespace std;
 
 class wektor {
 private:
-  double _wsp[ROZMIAR];
+    double _wsp[ROZMIAR];
 
 public:
-  wektor();
+    wektor();
 
-  const double & operator[] (int el) const {return this->_wsp[el];}
-  double & operator[] (int el) {return this->_wsp[el];}
+    const double & operator[] (int el) const {return this->_wsp[el];}
+    double & operator[] (int el) {return this->_wsp[el];}
 
-  friend istream & operator >> (istream &istr, wektor &wek);
-  friend ostream & operator << (ostream &ostr, const  wektor &wek);
+    wektor & operator+ (wektor wek2);
+    wektor & operator- (wektor wek2);
+    wektor & operator* (wektor wek2);
+    wektor & operator/ (wektor wek2);
+
+    friend istream & operator >> (istream &istr, wektor &wek);
+    friend ostream & operator << (ostream &ostr, const  wektor &wek);
 };
