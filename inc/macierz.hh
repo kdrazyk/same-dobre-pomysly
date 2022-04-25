@@ -1,5 +1,6 @@
-#include <iostream>
+#pragma once
 
+#include <iostream>
 #include "wektor.hh"
 
 using namespace std;
@@ -7,8 +8,8 @@ using namespace std;
 class macierz {
 private:
   wektor _kol[ROZMIAR];
-public:
 
+public:
   const wektor & operator[] (int el) const {return this->_kol[el];}
   wektor & operator[] (int el) {return this->_kol[el];}
 

@@ -7,11 +7,9 @@ using namespace std;
 
 class wektor {
 private:
-
-
-public:
   double _wsp[ROZMIAR];
 
+public:
   wektor();
 
   const double & operator[] (int el) const {return this->_wsp[el];}
@@ -19,5 +17,4 @@ public:
 
   friend istream & operator >> (istream &istr, wektor &wek);
   friend ostream & operator << (ostream &ostr, const  wektor &wek);
-
 };

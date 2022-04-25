@@ -11,6 +11,4 @@ int main(){
 
   cout << endl;
   cout << test << endl;
-
-
 }
