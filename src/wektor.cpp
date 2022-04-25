@@ -9,7 +9,7 @@ wektor::wektor()
 ostream & operator << (ostream &ostr, const wektor &wek)
 {
   for (double liczba : wek._wsp)
-    ostr << liczba << endl;
+    ostr << liczba;
   return ostr;
 }
 

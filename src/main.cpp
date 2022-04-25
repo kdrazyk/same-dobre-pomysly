@@ -8,7 +8,9 @@ int main(){
 
   macierz test;
   sData >> test;
+
   cout << endl;
   cout << test << endl;
+
 
 }
