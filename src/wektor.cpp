@@ -24,7 +24,7 @@ istream & operator >> (istream &istr, wektor &wek)
 wektor wektor::operator+ (const wektor &wektor2) const
 {
     wektor wynik;
-    for (int i=0; i < ROZMIAR; i++)
+    for (int i=0; i < ROZMIAR; ++i)
         wynik[i] = this->_wsp[i] + wektor2._wsp[i];
     return wynik;
 }
@@ -32,7 +32,24 @@ wektor wektor::operator+ (const wektor &wektor2) const
 wektor wektor::operator- (const wektor &wektor2) const
 {
     wektor wynik;
-    for (int i=0; i < ROZMIAR; i++)
+    for (int i=0; i < ROZMIAR; ++i)
         wynik[i] = this->_wsp[i] - wektor2._wsp[i];
+    return wynik;
+}
+
+wektor wektor::operator* (double liczba) const
+{
+    wektor wynik;
+    for (int i=0; i < ROZMIAR; ++i)
+        wynik[i] = this->_wsp[i] * liczba;
+    return wynik;
+}
+
+
+wektor wektor::operator/ (double liczba) const
+{
+    wektor wynik;
+    for (int i=0; i < ROZMIAR; ++i)
+        wynik[i] = this->_wsp[i] / liczba;
     return wynik;
 }

@@ -17,7 +17,8 @@ public:
 
     wektor operator+ (const wektor &wektor2) const;
     wektor operator- (const wektor &wektor2) const;
-
+    wektor operator* (double liczba) const;
+    wektor operator/ (double liczba) const;
 
     friend istream & operator >> (istream &istr, wektor &wek);
     friend ostream & operator << (ostream &ostr, const  wektor &wek);
