@@ -6,9 +6,12 @@ int main(){
     stringstream sData;
     sData.str (data);
 
-    ukladRownanLiniowych test;
-    sData >> test;
-
-    cout << endl;
-    cout << test << endl;
+    wektor T1, T2;
+    sData >> T1;
+    sData >> T2;
+    cout << T1 << endl;
+    cout << T2 << endl;
+    cout << T1 + T2 << endl;
+    cout << T1 << endl;
+    cout << T2 << endl;
 }

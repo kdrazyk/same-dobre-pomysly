@@ -21,15 +21,18 @@ istream & operator >> (istream &istr, wektor &wek)
 }
 
 
-wektor::wektor & operator+ (wektor wek2)
+wektor wektor::operator+ (const wektor &wektor2) const
 {
-    for (int i=0; i < ROZMIAR; i++) {
-
-    }
+    wektor wynik;
+    for (int i=0; i < ROZMIAR; i++)
+        wynik[i] = this->_wsp[i] + wektor2._wsp[i];
+    return wynik;
 }
 
-
-
-wektor::wektor & operator- (wektor wek2);
-wektor::wektor & operator* (wektor wek2);
-wektor::wektor & operator/ (wektor wek2);
+wektor wektor::operator- (const wektor &wektor2) const
+{
+    wektor wynik;
+    for (int i=0; i < ROZMIAR; i++)
+        wynik[i] = this->_wsp[i] - wektor2._wsp[i];
+    return wynik;
+}
