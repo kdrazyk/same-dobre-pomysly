@@ -18,6 +18,7 @@ public:
     const wektor & operator[] (int el) const {return this->_kol[el];}
     wektor & operator[] (int el) {return this->_kol[el];}
     macierz operator= (const macierz & mKopiowana);
+    wektor operator* (wektor wek) const;
 
     void do_jednostkowej();
     macierz macierz_odwrotna() const;

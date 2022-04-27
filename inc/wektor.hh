@@ -20,6 +20,10 @@ public:
     wektor operator* (double liczba) const;
     wektor operator/ (double liczba) const;
 
+    void set(int x, double y) {_wsp[x] = y;}
+    double get(int x) {return _wsp[x];}
+    void add(int x, double y) {_wsp[x] += y;}
+
     friend istream & operator >> (istream &istr, wektor &wek);
     friend ostream & operator << (ostream &ostr, const  wektor &wek);
 };

@@ -9,12 +9,6 @@ istream & operator >> (istream &istr, macierz &mac)
 
 ostream & operator << (ostream &ostr, const macierz &mac)
 {
-
-    /*
-      for (wektor wek : mac._kol)
-      ostr << wek << endl;
-    */
-
     int i,j;
     for (i=0; i < ROZMIAR; ++i) {
         for (j=0; j < ROZMIAR; ++j)
@@ -32,6 +26,17 @@ macierz macierz::operator= (const macierz & mKopiowana)
             this->_kol[i][j] = mKopiowana[i][j];
 
     return *this;
+}
+
+wektor macierz::operator* ( wektor wek) const
+{
+    wektor wynik;
+    int i,j;
+    for (i=0; i < ROZMIAR; ++i)
+        for (j=0; j < ROZMIAR; j++)
+            wynik.add(i, wek.get(j) * this->_kol[j][i]);
+
+    return wynik;
 }
 
 void macierz::do_jednostkowej()
@@ -53,10 +58,6 @@ macierz macierz::macierz_odwrotna() const
     mKopia = *this;
     mOdwrotna.do_jednostkowej();
 
-    cout << "macierz wejsciowa" << endl;
-    cout << mKopia << endl;
-    cout << mOdwrotna << endl;
-
     for (j=0; j < ROZMIAR; ++j)
         for (i=0; i < ROZMIAR; ++i) {
             k = (i+j)%ROZMIAR;
@@ -69,10 +70,6 @@ macierz macierz::macierz_odwrotna() const
                 cout << "BLAD: nie udalo sie ulozyc macierzy" << endl;
         }
 
-    cout << "po ulozeniu" << endl;
-    cout << mKopia << endl;
-    cout << mOdwrotna << endl;
-
     for (i=0; i < ROZMIAR; ++i) {
         mnoznik = mKopia[i][i];
         mKopia[i] = mKopia[i] / mnoznik;
@@ -83,21 +80,8 @@ macierz macierz::macierz_odwrotna() const
             mnoznik = mKopia[k][i];
             mKopia[k] = mKopia[k] - (mKopia[i] * mnoznik);
             mOdwrotna[k] = mOdwrotna[k] - (mOdwrotna[i] * mnoznik);
-
-            //cout << "(i,j): (" << i << "," << j << ")\n";
-            //cout << mKopia << endl;
-            //cout << mOdwrotna << endl;
         }
-
-        //cout << "(i,j): (" << i << "," << j << ")\n";
-        //cout << mKopia << endl;
-        //cout << mOdwrotna << endl;
     }
-
-    cout << "po gaussie" << endl;
-    cout << mKopia << endl;
-    cout << mOdwrotna << endl;
-
 
     return mOdwrotna;
 }
