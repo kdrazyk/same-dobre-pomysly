@@ -1,9 +1,14 @@
 #pragma once
 
 #include <iostream>
+#include <iomanip>
 #include "wektor.hh"
 
+#define RZAD_WIELK 6
+
 using namespace std;
+
+
 
 class macierz {
 private:

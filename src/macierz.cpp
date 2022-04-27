@@ -9,8 +9,19 @@ istream & operator >> (istream &istr, macierz &mac)
 
 ostream & operator << (ostream &ostr, const macierz &mac)
 {
-    for (wektor wek : mac._kol)
-        ostr << wek << endl;
+
+    /*
+      for (wektor wek : mac._kol)
+      ostr << wek << endl;
+    */
+
+    int i,j;
+    for (i=0; i < ROZMIAR; ++i) {
+        for (j=0; j < ROZMIAR; ++j)
+            ostr << setw(RZAD_WIELK) << setprecision(2) << mac._kol[j][i];
+        ostr << endl;
+    }
+
     return ostr;
 }
 
@@ -38,12 +49,17 @@ void macierz::do_jednostkowej()
 macierz macierz::macierz_odwrotna() const
 {
     macierz mOdwrotna, mKopia;
+    int i,j,k, mnoznik;
     mKopia = *this;
     mOdwrotna.do_jednostkowej();
 
-    for (int j=0; j < ROZMIAR; ++j)
-        for (int i=0; i < ROZMIAR; ++i) {
-            int k = (i+j)%3;
+    cout << "macierz wejsciowa" << endl;
+    cout << mKopia << endl;
+    cout << mOdwrotna << endl;
+
+    for (j=0; j < ROZMIAR; ++j)
+        for (i=0; i < ROZMIAR; ++i) {
+            k = (i+j)%ROZMIAR;
             if (mKopia[k][j] != 0) {
                 swap(mKopia[k],mKopia[j]);
                 swap(mOdwrotna[k],mOdwrotna[j]);
@@ -53,7 +69,32 @@ macierz macierz::macierz_odwrotna() const
                 cout << "BLAD: nie udalo sie ulozyc macierzy" << endl;
         }
 
-    cout << *this << endl;
+    cout << "po ulozeniu" << endl;
+    cout << mKopia << endl;
+    cout << mOdwrotna << endl;
+
+    for (i=0; i < ROZMIAR; ++i) {
+        mnoznik = mKopia[i][i];
+        mKopia[i] = mKopia[i] / mnoznik;
+        mOdwrotna[i] = mOdwrotna[i] / mnoznik;
+
+        for (j=1; j < ROZMIAR; ++j) {
+            k = (i+j)%ROZMIAR;
+            mnoznik = mKopia[k][i];
+            mKopia[k] = mKopia[k] - (mKopia[i] * mnoznik);
+            mOdwrotna[k] = mOdwrotna[k] - (mOdwrotna[i] * mnoznik);
+
+            //cout << "(i,j): (" << i << "," << j << ")\n";
+            //cout << mKopia << endl;
+            //cout << mOdwrotna << endl;
+        }
+
+        //cout << "(i,j): (" << i << "," << j << ")\n";
+        //cout << mKopia << endl;
+        //cout << mOdwrotna << endl;
+    }
+
+    cout << "po gaussie" << endl;
     cout << mKopia << endl;
     cout << mOdwrotna << endl;
 

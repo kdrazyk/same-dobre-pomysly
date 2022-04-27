@@ -2,7 +2,7 @@
 
 int main(){
 
-    string data = "0 0 1  1 1 1  1 0 0";
+    string data = "1 2 3  4 0 6  7 8 9";
     stringstream sData;
     sData.str (data);
 
