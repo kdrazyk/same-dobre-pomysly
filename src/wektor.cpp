@@ -10,7 +10,7 @@ ostream & operator << (ostream &ostr, const wektor &wek)
 {
     ostr << "[";
     for (int i=0; i < ROZMIAR; ++i) {
-        ostr << setw(6) << wek._wsp[i];
+        ostr << setw(SZEROKOSC) << setprecision(PRECYZJA) << wek._wsp[i];
         ostr << (i==ROZMIAR-1 ? "" : ",");
     }
     ostr << "]";
