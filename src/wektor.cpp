@@ -24,7 +24,6 @@ istream & operator >> (istream &istr, wektor &wek)
     return istr;
 }
 
-
 wektor wektor::operator+ (const wektor &wektor2) const
 {
     wektor wynik;
@@ -48,7 +47,6 @@ wektor wektor::operator* (double liczba) const
         wynik[i] = this->_wsp[i] * liczba;
     return wynik;
 }
-
 
 wektor wektor::operator/ (double liczba) const
 {

@@ -10,6 +10,3 @@ int main(){
     cout << "Wektor bledu Ax-b = " << url.wektorBledu() << endl;
     cout << "Dlugosc wektora bledu: " << url.wektorBledu().dlugosc() << endl;
 }
-
-//poprawic tabele w sprawozdaniu
-////przelozyc zalegle sprawozdania do teczki

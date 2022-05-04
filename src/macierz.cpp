@@ -15,7 +15,6 @@ ostream & operator << (ostream &ostr, const macierz &mac)
             ostr << setw(RZAD_WIELK) << setprecision(2) << mac._kol[j][i];
         ostr << endl;
     }
-
     return ostr;
 }
 
@@ -24,7 +23,6 @@ macierz macierz::operator= (const macierz & mKopiowana)
     for (int i=0; i < ROZMIAR; ++i)
         for (int j=0; j < ROZMIAR; ++j)
             this->_kol[i][j] = mKopiowana[i][j];
-
     return *this;
 }
 
@@ -35,7 +33,6 @@ wektor macierz::operator* ( wektor wek) const
     for (i=0; i < ROZMIAR; ++i)
         for (j=0; j < ROZMIAR; j++)
             wynik.add(i, wek.get(j) * this->_kol[j][i]);
-
     return wynik;
 }
 
@@ -49,7 +46,6 @@ void macierz::do_jednostkowej()
                 this->_kol[i][j] = 0;
         }
 }
-
 
 macierz macierz::odwrotna() const
 {
@@ -75,7 +71,6 @@ macierz macierz::odwrotna() const
         mnoznik = mKopia[i][i];
         mKopia[i] = mKopia[i] / mnoznik;
         mOdwrotna[i] = mOdwrotna[i] / mnoznik;
-
         for (j=1; j < ROZMIAR; ++j) {
             k = (i+j)%ROZMIAR;
             mnoznik = mKopia[k][i];
@@ -83,6 +78,5 @@ macierz macierz::odwrotna() const
             mOdwrotna[k] = mOdwrotna[k] - (mOdwrotna[i] * mnoznik);
         }
     }
-
     return mOdwrotna;
 }

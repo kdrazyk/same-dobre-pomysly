@@ -8,8 +8,6 @@
 
 using namespace std;
 
-
-
 class macierz {
 private:
     wektor _kol[ROZMIAR];
