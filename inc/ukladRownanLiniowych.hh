@@ -12,6 +12,8 @@ private:
     wektor _wektorRozwiazan;
 
 public:
+    wektor rozwiazanie() const;
+    wektor wektorBledu() const;
 
     friend istream & operator >> (istream &istr, ukladRownanLiniowych &url);
     friend ostream & operator << (ostream &ostr, const ukladRownanLiniowych &url);

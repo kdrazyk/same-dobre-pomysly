@@ -18,3 +18,13 @@ ostream & operator << (ostream &ostr, const ukladRownanLiniowych &url)
     }
     return ostr;
 }
+
+wektor ukladRownanLiniowych::rozwiazanie() const
+{
+    return this->_macierzParametrow.odwrotna() * this->_wektorRozwiazan;
+}
+
+wektor ukladRownanLiniowych::wektorBledu() const
+{
+    return this->_macierzParametrow * this->rozwiazanie() - this->_wektorRozwiazan;
+}

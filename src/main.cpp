@@ -1,14 +1,15 @@
 #include "main.hh"
 
 int main(){
-
-    string data = "1 2 3  4 0 6  7 8 9     3 5 7";
-    stringstream sData;
-    sData.str (data);
-
-    wektor W1;
-    macierz T1;
-    sData >> T1;
-    sData >> W1;
-    cout << (T1.macierz_odwrotna() * W1);
+    ukladRownanLiniowych url;
+    cin >> url;
+    cout << "Uklad rownan:" << endl;
+    cout << url << endl;
+    cout << "Rozwiazanie x = [x_1, x_2, x_3]" << endl;
+    cout << url.rozwiazanie() << endl;
+    cout << "Wektor bledu Ax-b = " << url.wektorBledu() << endl;
+    cout << "Dlugosc wektora bledu: " << url.wektorBledu().dlugosc() << endl;
 }
+
+//poprawic tabele w sprawozdaniu
+////przelozyc zalegle sprawozdania do teczki

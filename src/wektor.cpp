@@ -8,8 +8,12 @@ wektor::wektor()
 
 ostream & operator << (ostream &ostr, const wektor &wek)
 {
-    for (double liczba : wek._wsp)
-        ostr << liczba;
+    ostr << "[";
+    for (int i=0; i < ROZMIAR; ++i) {
+        ostr << setw(6) << wek._wsp[i];
+        ostr << (i==ROZMIAR-1 ? "" : ",");
+    }
+    ostr << "]";
     return ostr;
 }
 
@@ -52,4 +56,17 @@ wektor wektor::operator/ (double liczba) const
     for (int i=0; i < ROZMIAR; ++i)
         wynik[i] = this->_wsp[i] / liczba;
     return wynik;
+}
+
+double wektor::iloczynSkalarny(const wektor &wek2) const
+{
+    double wynik = 0;
+    for (int i=0; i < ROZMIAR; ++i)
+        wynik += this->_wsp[i] * wek2._wsp[i];
+    return wynik;
+}
+
+double wektor::dlugosc() const
+{
+    return sqrt(this->iloczynSkalarny(*this));
 }

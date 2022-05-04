@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <iomanip>
+#include <cmath>
 #include "rozmiar.hh"
 
 using namespace std;
@@ -20,6 +22,8 @@ public:
     wektor operator* (double liczba) const;
     wektor operator/ (double liczba) const;
 
+    double iloczynSkalarny(const wektor &wek2) const;
+    double dlugosc() const;
     void set(int x, double y) {_wsp[x] = y;}
     double get(int x) {return _wsp[x];}
     void add(int x, double y) {_wsp[x] += y;}

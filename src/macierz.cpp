@@ -51,10 +51,11 @@ void macierz::do_jednostkowej()
 }
 
 
-macierz macierz::macierz_odwrotna() const
+macierz macierz::odwrotna() const
 {
     macierz mOdwrotna, mKopia;
-    int i,j,k, mnoznik;
+    int i,j,k;
+    double mnoznik;
     mKopia = *this;
     mOdwrotna.do_jednostkowej();
 

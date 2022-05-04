@@ -21,7 +21,7 @@ public:
     wektor operator* (wektor wek) const;
 
     void do_jednostkowej();
-    macierz macierz_odwrotna() const;
+    macierz odwrotna() const;
 
     friend istream & operator >> (istream &istr, macierz &mac);
     friend ostream & operator << (ostream &ostr, const  macierz &mac);
