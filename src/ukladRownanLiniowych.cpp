@@ -2,7 +2,8 @@
 
 istream & operator >> (istream &istr, ukladRownanLiniowych &url)
 {
-    istr >> url._macierzParametrow >> url._wektorRozwiazan;
+    char typ;  // wstawka tymczasowa
+    istr >> typ >> url._macierzParametrow >> url._wektorRozwiazan;
     return istr;
 }
 

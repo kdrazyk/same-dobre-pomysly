@@ -63,8 +63,11 @@ macierz macierz::odwrotna() const
                 swap(mOdwrotna[k],mOdwrotna[j]);
                 break;
             }
-            else if (i==ROZMIAR-1)
+            else if (i==ROZMIAR-1) {
                 cout << "BLAD: nie udalo sie ulozyc macierzy" << endl;
+                exit(-1);
+            }
+
         }
 
     for (i=0; i < ROZMIAR; ++i) {

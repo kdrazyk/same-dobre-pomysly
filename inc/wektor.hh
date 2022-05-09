@@ -7,6 +7,9 @@
 
 using namespace std;
 
+#define SZEROKOSC 5
+#define PRECYZJA 5
+
 class wektor {
 private:
     double _wsp[ROZMIAR];

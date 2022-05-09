@@ -19,6 +19,9 @@ DEPS := $(patsubst %,$(IDIR)/%,$(_DEPS))
 _OBJ := main.o wektor.o macierz.o ukladRownanLiniowych.o
 OBJ := $(patsubst %,$(ODIR)/%,$(_OBJ))
 
+__start__: $(OUTPUT)
+	./$(OUTPUT) < rownanie_liczb_rzeczywistych.dat
+
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
@@ -29,3 +32,7 @@ $(OUTPUT): $(OBJ)
 
 clean:
 	rm -f $(ODIR)/*.o
+
+test:
+	./$(OUTPUT) < rownanie_liczb_rzeczywistych.dat
+	./$(OUTPUT) < rownanie_liczb_zespolone.dat
