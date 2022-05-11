@@ -2,9 +2,7 @@
 
 #include <iostream>
 #include <iomanip>
-
 #include "swektor.hh"
-//#include "wektor.hh"
 
 #define RZAD_WIELK 6
 
