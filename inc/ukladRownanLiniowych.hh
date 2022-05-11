@@ -9,11 +9,11 @@
 class ukladRownanLiniowych {
 private:
     macierz _macierzParametrow;
-    wektor _wektorRozwiazan;
+    swektor<double,ROZMIAR> _wektorRozwiazan;
 
 public:
-    wektor rozwiazanie() const;
-    wektor wektorBledu() const;
+    swektor<double,ROZMIAR> rozwiazanie() const;
+    swektor<double,ROZMIAR> wektorBledu() const;
 
     friend istream & operator >> (istream &istr, ukladRownanLiniowych &url);
     friend ostream & operator << (ostream &ostr, const ukladRownanLiniowych &url);

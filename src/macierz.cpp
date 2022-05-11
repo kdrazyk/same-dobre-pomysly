@@ -2,7 +2,7 @@
 
 istream & operator >> (istream &istr, macierz &mac)
 {
-    for (wektor &wek : mac._kol)
+    for (swektor<double,ROZMIAR> &wek : mac._kol)
         istr >> wek;
     return istr;
 }
@@ -26,9 +26,9 @@ macierz macierz::operator= (const macierz & mKopiowana)
     return *this;
 }
 
-wektor macierz::operator* ( wektor wek) const
+swektor<double,ROZMIAR> macierz::operator* (swektor<double,ROZMIAR> wek) const
 {
-    wektor wynik;
+    swektor<double,ROZMIAR> wynik;
     int i,j;
     for (i=0; i < ROZMIAR; ++i)
         for (j=0; j < ROZMIAR; j++)

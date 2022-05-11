@@ -4,7 +4,7 @@
 #include <iomanip>
 
 #include "swektor.hh"
-#include "wektor.hh"
+//#include "wektor.hh"
 
 #define RZAD_WIELK 6
 
@@ -12,13 +12,13 @@ using namespace std;
 
 class macierz {
 private:
-    wektor _kol[ROZMIAR];
+    swektor<double,ROZMIAR> _kol[ROZMIAR];
 
 public:
-    const wektor & operator[] (int el) const {return this->_kol[el];}
-    wektor & operator[] (int el) {return this->_kol[el];}
+    const swektor<double,ROZMIAR> & operator[] (int el) const {return this->_kol[el];}
+    swektor<double,ROZMIAR> & operator[] (int el) {return this->_kol[el];}
     macierz operator= (const macierz & mKopiowana);
-    wektor operator* (wektor wek) const;
+    swektor<double,ROZMIAR> operator* (swektor<double,ROZMIAR> wek) const;
 
     void do_jednostkowej();
     macierz odwrotna() const;
