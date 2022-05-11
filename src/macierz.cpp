@@ -32,7 +32,7 @@ wektor macierz::operator* ( wektor wek) const
     int i,j;
     for (i=0; i < ROZMIAR; ++i)
         for (j=0; j < ROZMIAR; j++)
-            wynik.add(i, wek.get(j) * this->_kol[j][i]);
+            wynik.add(i, wek[j] * this->_kol[j][i]);
     return wynik;
 }
 

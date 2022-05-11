@@ -9,10 +9,9 @@ SDIR :=src
 
 CC :=g++
 CFLAGS :=-I$(IDIR) -Wall -pedantic -std=c++17
-LIBS :=
 
 #*.h
-_DEPS := main.hh wektor.hh macierz.hh ukladRownanLiniowych.hh rozmiar.hh
+_DEPS := main.hh wektor.hh macierz.hh ukladRownanLiniowych.hh rozmiar.hh swektor.hh
 DEPS := $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 #*.o

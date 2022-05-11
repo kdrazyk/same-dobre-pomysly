@@ -1,2 +1,2 @@
 #pragma once
-#define ROZMIAR 3
+#define ROZMIAR 5

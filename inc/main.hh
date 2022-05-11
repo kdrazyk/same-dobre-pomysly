@@ -4,3 +4,5 @@
 #include <sstream>
 
 #include "ukladRownanLiniowych.hh"
+
+#include "swektor.hh"

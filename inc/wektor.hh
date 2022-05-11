@@ -27,8 +27,8 @@ public:
 
     double iloczynSkalarny(const wektor &wek2) const;
     double dlugosc() const;
-    void set(int x, double y) {_wsp[x] = y;}
-    double get(int x) {return _wsp[x];}
+//    void set(int x, double y) {_wsp[x] = y;}
+  //  double get(int x) {return _wsp[x];}
     void add(int x, double y) {_wsp[x] += y;}
 
     friend istream & operator >> (istream &istr, wektor &wek);
