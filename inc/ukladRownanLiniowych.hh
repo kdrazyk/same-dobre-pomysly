@@ -2,13 +2,13 @@
 
 #include <iostream>
 #include <iomanip>
-#include "macierz.hh"
+#include "smacierz.hh"
 
 #define RZAD_WIELK_LICZB 3
 
 class ukladRownanLiniowych {
 private:
-    macierz _macierzParametrow;
+    smacierz<double,ROZMIAR> _macierzParametrow;
     swektor<double,ROZMIAR> _wektorRozwiazan;
 
 public:

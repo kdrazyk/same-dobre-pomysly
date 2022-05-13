@@ -4,6 +4,7 @@
 #include <iomanip>
 #include <cmath>
 #include "rozmiar.hh"
+#include "LZespolona.hh"
 
 using namespace std;
 
@@ -26,8 +27,8 @@ public:
 
     swektor<sTyp,sWymiar> operator + (const swektor<sTyp, sWymiar> &wektor2) const;
     swektor<sTyp,sWymiar> operator - (const swektor<sTyp, sWymiar> &wektor2) const;
-    swektor<sTyp,sWymiar> operator * (double liczba) const;
-    swektor<sTyp,sWymiar> operator / (double liczba) const;
+    swektor<sTyp,sWymiar> operator * (sTyp liczba) const;
+    swektor<sTyp,sWymiar> operator / (sTyp liczba) const;
 };
 
 
@@ -56,7 +57,7 @@ template <typename sTyp, int sWymiar>
 double swektor<sTyp,sWymiar>::iloczynSkalarny(const swektor<sTyp, sWymiar> &wek2) const
 {
     double wynik = 0;
-    for (int i=0; i < ROZMIAR; ++i)
+    for (int i=0; i < sWymiar; ++i)
         wynik += this->_wsp[i] * wek2._wsp[i];
     return wynik;
 }
@@ -80,19 +81,19 @@ swektor<sTyp,sWymiar> swektor<sTyp,sWymiar>::operator - (const swektor<sTyp, sWy
 }
 
 template <typename sTyp, int sWymiar>
-swektor<sTyp,sWymiar> swektor<sTyp,sWymiar>::operator * (double liczba) const
+swektor<sTyp,sWymiar> swektor<sTyp,sWymiar>::operator * (sTyp liczba) const
 {
     swektor<sTyp,sWymiar> wynik;
-    for (int i=0; i < ROZMIAR; ++i)
+    for (int i=0; i < sWymiar; ++i)
         wynik[i] = this->_wsp[i] * liczba;
     return wynik;
 }
 
 template <typename sTyp, int sWymiar>
-swektor<sTyp,sWymiar> swektor<sTyp,sWymiar>::operator / (double liczba) const
+swektor<sTyp,sWymiar> swektor<sTyp,sWymiar>::operator / (sTyp liczba) const
 {
     swektor<sTyp,sWymiar> wynik;
-    for (int i=0; i < ROZMIAR; ++i)
+    for (int i=0; i < sWymiar; ++i)
         wynik[i] = this->_wsp[i] / liczba;
     return wynik;
 }
