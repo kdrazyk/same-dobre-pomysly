@@ -11,15 +11,15 @@ CC :=g++
 CFLAGS :=-I$(IDIR) -Wall -pedantic -std=c++17
 
 #*.h
-_DEPS := main.hh wektor.hh macierz.hh ukladRownanLiniowych.hh rozmiar.hh swektor.hh
+_DEPS := swektor.hh sukladRownanLiniowych.hh rozmiar.hh LZespolona.hh smacierz.hh
 DEPS := $(patsubst %,$(IDIR)/%,$(_DEPS))
 
 #*.o
-_OBJ := main.o wektor.o macierz.o ukladRownanLiniowych.o
+_OBJ := main.o ukladRownanLiniowych.o LZespolona.o
 OBJ := $(patsubst %,$(ODIR)/%,$(_OBJ))
 
 __start__: $(OUTPUT)
-	./$(OUTPUT) < rownanie_liczb_rzeczywistych.dat
+	./$(OUTPUT) < rownanie_liczb_zespolone.dat
 
 $(ODIR)/%.o: $(SDIR)/%.cpp $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)

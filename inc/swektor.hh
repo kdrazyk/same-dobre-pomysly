@@ -8,8 +8,8 @@
 
 using namespace std;
 
-#define SZEROKOSC 5
-#define PRECYZJA 5
+#define SZEROKOSC 6
+#define PRECYZJA 1
 
 template <typename sTyp, int sWymiar>
 class swektor {
@@ -22,8 +22,8 @@ public:
     const sTyp & operator[] (int el) const {return this->_wsp[el];}
     sTyp & operator[] (int el) {return this->_wsp[el];}
     void add(int x, sTyp y) {_wsp[x] += y;}
-    double iloczynSkalarny(const swektor<sTyp, sWymiar> &wek2) const;
-    double dlugosc() {return sqrt(this->iloczynSkalarny(*this));}
+    sTyp iloczynSkalarny(const swektor<sTyp, sWymiar> &wek2) const;
+    double dlugosc();
 
     swektor<sTyp,sWymiar> operator + (const swektor<sTyp, sWymiar> &wektor2) const;
     swektor<sTyp,sWymiar> operator - (const swektor<sTyp, sWymiar> &wektor2) const;
@@ -46,7 +46,7 @@ ostream & operator << (ostream &ostr, const swektor<sTyp,sWymiar> &wek)
 {
     ostr << "[";
     for (int i=0; i < sWymiar; ++i) {
-        ostr << setw(SZEROKOSC) << setprecision(PRECYZJA) << wek[i];
+        ostr  << scientific << setprecision(PRECYZJA) << wek[i];
         ostr << (i==sWymiar-1 ? "" : ",");
     }
     ostr << "]";
@@ -54,12 +54,33 @@ ostream & operator << (ostream &ostr, const swektor<sTyp,sWymiar> &wek)
 }
 
 template <typename sTyp, int sWymiar>
-double swektor<sTyp,sWymiar>::iloczynSkalarny(const swektor<sTyp, sWymiar> &wek2) const
+sTyp swektor<sTyp,sWymiar>::iloczynSkalarny(const swektor<sTyp, sWymiar> &wek2) const
 {
-    double wynik = 0;
+    sTyp wynik;
+    wynik = 0;
     for (int i=0; i < sWymiar; ++i)
         wynik += this->_wsp[i] * wek2._wsp[i];
     return wynik;
+}
+
+/* IMPLEMENTACJA DLA DOUBLE
+template<typename sTyp, int sWymiar>
+double swektor<sTyp,sWymiar>::dlugosc()
+{
+    return sqrt(this->iloczynSkalarny(*this));
+}
+ */
+
+template<typename sTyp, int sWymiar>
+inline double swektor<sTyp,sWymiar>::dlugosc()
+{
+    double suma = 0;
+    liczba_zespolona lz;
+    for (int i=0; i < sWymiar; ++i) {
+     lz = this->_wsp[i];
+     suma += lz.modul2();
+    }
+    return sqrt(suma);
 }
 
 template <typename sTyp, int sWymiar>

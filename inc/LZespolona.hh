@@ -24,6 +24,9 @@ public:
     bool operator == (double liczba) const {return (this->re == liczba) && (this->im == 0);};
     bool operator != (double liczba) const {return (this->re != liczba) || (this->im != 0);};
     liczba_zespolona operator += (liczba_zespolona lz);
+    liczba_zespolona sprzezenie() const {liczba_zespolona lz(this->re, -(this->im)); return lz;}
+
+    double modul2() {return (this->re * this->re) + (this->im * this->im);}
 
     // Wypisanie liczby zespolonej w formacie (a+bi)
     friend ostream & operator << (ostream &ostr, liczba_zespolona lz);
